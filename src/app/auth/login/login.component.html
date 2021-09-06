@@ -1,0 +1,39 @@
+<!--  VISWA YADEEDYA -->
+<div class="container">
+  <div class="row my-4">
+    <div class="col-md-6 offset-md-3">
+      <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit(logMessage)">
+        <div>
+          <label class="form-label">Email address</label>
+          <input formControlName="emailId" type="email" class="form-control" />
+          <div *ngIf="!emailValidators()">&nbsp;</div>
+          <div class="error" *ngIf="emailValidators()">
+            {{ emailValidators() }}
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+          />
+          <div *ngIf="!passwordValidators()">&nbsp;</div>
+          <div class="error" *ngIf="passwordValidators()">
+            {{ passwordValidators() }}
+          </div>
+        </div>
+        <button
+          [disabled]="!loginForm.valid"
+          type="submit"
+          class="btn btn-primary"
+        >
+          {{ logMessage }}</button
+        >&nbsp; | &nbsp;
+        <button type="button" class="btn btn-primary" (click)="Onswitch()">
+          Switch to {{ switchMessage }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

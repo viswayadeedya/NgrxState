@@ -1,0 +1,48 @@
+<!-- VISWA YADEEDYA -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">NgRx State</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      *ngIf="isAuthenticated"
+      class="collapse navbar-collapse d-flex justify-content-between"
+      id="navbarNavAltMarkup"
+    >
+      <div class="navbar-nav">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active"
+          routerLink="/home"
+          >Home</a
+        >
+        <a class="nav-link" routerLinkActive="active" routerLink="/counter"
+          >Counter</a
+        >
+        <a class="nav-link" routerLinkActive="active" routerLink="/posts"
+          >Posts</a
+        >
+      </div>
+      <div class="navbar-nav">
+        <a
+          style="cursor: pointer"
+          class="nav-link align-self-end"
+          routerLinkActive="active"
+          (click)="onLogout($event)"
+          >Logout</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>

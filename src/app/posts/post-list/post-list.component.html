@@ -1,0 +1,44 @@
+<!-- VISWA YADEEDYAN -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h3>Posts List</h3>
+      <button class="btn btn-primary btn-sm" [routerLink]="['/posts/add']">
+        Add Post
+      </button>
+      <table class="table table-striped" *ngIf="posts$ | async as postsData">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of postsData">
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.description }}</td>
+            <td>
+              <i
+                style="color: blue"
+                [routerLink]="['/posts' + '/update/' + post.id]"
+                class="pointer bi bi-pencil-square"
+              ></i>
+              &nbsp;
+              <i
+                (click)="deletePost(post.id)"
+                style="color: red"
+                class="pointer bi bi-trash"
+              ></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

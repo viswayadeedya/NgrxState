@@ -1,0 +1,37 @@
+<!-- VISWA YADEEDYA -->
+<div class="row my-4">
+  <div class="col-md-12">
+    <h3>{{ postTitle }}</h3>
+    <hr />
+    <form [formGroup]="postForm" (ngSubmit)="addPost()">
+      <div>
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control" formControlName="title" />
+        <div *ngIf="!titleValidator()">&nbsp;</div>
+        <div style="color: red" *ngIf="titleValidator()">
+          {{ titleValidator() }}
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" formControlName="description"></textarea>
+        <div *ngIf="!descriptionValidator()">&nbsp;</div>
+        <div style="color: red" *ngIf="descriptionValidator()">
+          {{ descriptionValidator() }}
+        </div>
+      </div>
+      <div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!postForm.valid"
+        >
+          Submit</button
+        >&nbsp;
+        <button type="submit" routerLink="/posts" class="btn btn-danger">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

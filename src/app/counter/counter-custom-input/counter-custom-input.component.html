@@ -1,0 +1,14 @@
+<!-- VISWA YADEEDYA -->
+<p>{{ titleText$ | async }}</p>
+<div class="form-inline">
+  <input
+    class="form-control form-display"
+    type="text"
+    placeholder="enter count value"
+    [(ngModel)]="value"
+  />&nbsp;
+  <button class="btn btn-primary btn-sm" (click)="addToCounter()">
+    ADD TO COUNTER</button
+  >&nbsp;
+  <button class="btn btn-primary btn-sm" (click)="changeTitle()">CLICK</button>
+</div>
